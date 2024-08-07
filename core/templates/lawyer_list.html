@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Lawyers{% endblock %}
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'images/logo background.jpg' %}"); /* Set background image */
+        background-size: cover; /* Cover the entire page */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent repeating */
+        color: #ffffff; /* Set text color to white for better contrast */
+        font-family: 'Arial', sans-serif; /* Font for the entire body */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+    }
+
+    /* Navbar styles */
+    .navbar {
+        display: flex; /* Flexbox for navbar items */
+        justify-content: center; /* Center items horizontally */
+        padding: 10px 0; /* Padding for the navbar */
+        position: sticky; /* Sticky positioning */
+        top: 0; /* Align to the top */
+        z-index: 1000; /* Ensure it stays on top */
+    }
+
+    .navbar a {
+        background-color: #ffcc00; /* Yellow button background */
+        color: #000; /* Black text color */
+        text-decoration: none; /* Remove underline */
+        padding: 10px 20px; /* Padding for links */
+        font-size: 1.1rem; /* Font size for links */
+        margin: 0 10px; /* Space between links */
+        border-radius: 5px; /* Rounded corners for buttons */
+        transition: transform 0.3s; /* Smooth transition for scaling */
+    }
+
+    .navbar a:hover {
+        transform: none; /* No transform on hover */
+    }
+
+    .lawyers-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for blending */
+        box-shadow: none; /* Remove shadow */
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        color: #ffcc00; /* Bright color for headings */
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .lawyer-row {
+        display: flex;
+        justify-content: space-between; /* Space out the items */
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Light border for better visibility */
+    }
+
+    .lawyer-row:last-child {
+        border-bottom: none; /* Remove the border for the last row */
+    }
+
+    .lawyer-name {
+        flex: 1; /* Allow name to take up available space */
+        font-weight: bold; /* Bold for the name */
+        color: #ffcc00; /* Bright color for visibility */
+        text-shadow: none; /* Remove shadow for better visibility */
+    }
+
+    .lawyer-specialization {
+        flex: 1; /* Allow specialization to take up available space */
+        color: #ffffff; /* White for specialization */
+    }
+
+    .empty-message {
+        font-style: italic;
+        color: #ffffff; /* White for empty message */
+        font-size: 1.2em;
+        text-align: center; /* Center the empty message */
+        margin-top: 20px; /* Adds space above the empty message */
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+        h2 {
+            font-size: 2em; /* Adjust heading size for smaller screens */
+        }
+        .lawyer-row {
+            flex-direction: column; /* Stack items on smaller screens */
+            align-items: flex-start; /* Align items to the start */
+        }
+    }
+</style>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="{% url 'admin_dashboard' %}">Admin Dashboard</a>
+    <a href="{% url 'client_list' %}">Client List</a>
+    <a href="{% url 'appointment_list' %}">Appointment List</a>
+    <a href="{% url 'add_lawyer' %}">Add Lawyer</a>
+    <a href="{% url 'contact' %}">Contact</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+
+<div class="lawyers-container">
+    <h2>Lawyers</h2>
+    <div class="lawyer-row">
+        <div class="lawyer-name">Lawyer Name</div>
+        <div class="lawyer-specialization">Specialization</div>
+    </div>
+    {% for lawyer in lawyers %}
+        <div class="lawyer-row">
+            <div class="lawyer-name">{{ lawyer.name }}</div>
+            <div class="lawyer-specialization">{{ lawyer.specialization }}</div>
+        </div>
+    {% empty %}
+        <div class="empty-message">No lawyers found.</div>
+    {% endfor %}
+</div>
+{% endblock %}

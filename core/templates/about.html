@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}  <!-- Load static files -->
+{% block content %}
+<nav class="navbar">
+    <a href="{% url 'client_appointments' %}" class="btn">My Appointments</a>
+    <a href="{% url 'book_appointment' %}" class="btn">Book Appointment</a>
+    <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+    <a href="{% url 'about' %}" class="btn">About</a>
+    <a href="{% url 'logout' %}" class="btn">Logout</a>
+</nav>
+
+<div class="main-content">
+    <h1 class="main-title">About Us</h1>
+    <p class="about-text">At Abdiweli & Co Advocates, we are dedicated to providing exceptional legal services tailored to your needs. Our team of experienced lawyers is committed to ensuring that you receive the best possible representation and guidance.</p>
+    
+    <h2 class="sub-title">Our Mission</h2>
+    <p class="about-text">To deliver effective legal solutions with integrity and professionalism, empowering our clients to achieve their goals.</p>
+    
+    <h2 class="sub-title">Our Vision</h2>
+    <p class="about-text">To be recognized as a leading law firm, known for our commitment to excellence and client satisfaction.</p>
+    
+    <h2 class="sub-title">Our Values</h2>
+    <ul class="values-list">
+        <li>Integrity</li>
+        <li>Commitment</li>
+        <li>Excellence</li>
+        <li>Client-Centric Approach</li>
+        <li>Collaboration</li>
+    </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Abdiweli & Co Advocates. All Rights Reserved.</p>
+</footer>
+
+<style>
+    /* Basic styling for the overall layout */
+    body {
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font style */
+        background-image: url("{% static 'images/logo background.jpg' %}"); /* Set the background image */
+        background-size: cover; /* Cover the entire page */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent repeating */
+        min-height: 100vh; /* Ensure minimum height is full viewport */
+        color: #fff; /* Change text color to white for better contrast */
+    }
+
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for contrast */
+        padding: 30px; /* Inner padding */
+        border-radius: 10px; /* Rounded corners */
+        margin: 20px; /* Margin for the content */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow to separate from background */
+    }
+
+    .navbar {
+        display: flex; /* Use flex for navbar */
+        justify-content: center; /* Center navbar items */
+        gap: 20px; /* Spacing between items */
+        margin: 20px 0; /* Space above and below navbar */
+        z-index: 10; /* Make sure navbar is on top */
+    }
+
+    .btn {
+        background-color: #ffcc00; /* Button background with transparency */
+        color: white; /* Button text color */
+        padding: 10px 15px; /* Button padding */
+        border-radius: 5px; /* Rounded corners for buttons */
+        text-decoration: none; /* Remove underline */
+        transition: all 0.3s; /* Smooth transition for button */
+        border: 2px solid transparent; /* Button border */
+    }
+
+    .btn:hover {
+        background-color: rgba(0, 86, 179, 0.8); /* Darker button background on hover */
+        border: 2px solid white; /* Button border on hover */
+    }
+
+    /* Main title styling */
+    .main-title {
+        font-size: 3rem; /* Size for main title */
+        font-weight: bold; /* Bold font */
+        margin-bottom: 20px; /* Space below title */
+        text-align: center; /* Center the title */
+        color: #ffcc00; /* Yellow color for title */
+    }
+
+    /* Subtitle styling */
+    .sub-title {
+        font-size: 2rem; /* Size for subtitle */
+        margin-top: 20px; /* Space above subtitle */
+        color: #ffcc00; /* Yellow color for subtitle */
+    }
+
+    .about-text {
+        font-size: 1.25rem; /* Size for text */
+        margin-bottom: 20px; /* Space below text */
+        text-align: justify; /* Justify text */
+    }
+
+    .values-list {
+        list-style-type: disc; /* Bullet points for the list */
+        margin-left: 20px; /* Indent the list */
+        color: #ffcc00; /* Yellow color for list items */
+        font-size: 1rem; /* Size for list items */
+    }
+
+    /* Footer styling */
+    footer {
+        text-align: center; /* Center footer text */
+        margin-top: 40px; /* Space above footer */
+        color: #fff; /* White color for footer text */
+    }
+</style>
+
+{% endblock %}

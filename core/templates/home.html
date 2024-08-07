@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'images/logo background.jpg' %}"); /* Set background image */
+        background-size: cover; /* Cover the entire page */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent repeating */
+        color: #ffffff; /* Set default text color to white */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        font-family: 'Verdana', sans-serif; /* Clear font for better visibility */
+    }
+
+    .container {
+        max-width: 900px; 
+        margin: 0 auto; 
+        padding: 40px; 
+        border-radius: 12px; 
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+        background-color: transparent; /* Remove white background for blending */
+    }
+
+    h1 {
+        font-size: 2.8rem; 
+        font-weight: 700; 
+        color: #ffcc00; /* Bright yellow for better visibility */
+    }
+
+    p {
+        margin-top: 10px; 
+        font-size: 1.2rem; 
+        color: #ffffff; /* White text for contrast */
+    }
+
+    .button {
+        display: inline-block; 
+        padding: 12px 24px; 
+        border-radius: 8px; 
+        text-decoration: none; 
+        font-size: 1rem; 
+        font-weight: 600; 
+        transition: background-color 0.3s, transform 0.2s; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .button-login {
+        background-color: #3498db; /* Blue for Login button */
+        color: white; 
+    }
+
+    .button-register {
+        background-color: #e74c3c; /* Red for Register button */
+        color: white; 
+    }
+
+    .button:hover {
+        transform: translateY(-2px); /* Slight upward movement on hover */
+    }
+
+    .features-container {
+        padding: 30px; 
+        border-radius: 10px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        background-color: rgba(236, 240, 241, 0.8); /* Light semi-transparent background for features */
+    }
+
+    .features-container h2 {
+        font-size: 2rem; 
+        font-weight: 600; 
+        color: #34495e; 
+    }
+
+    .features-container p {
+        margin-top: 10px; 
+        font-size: 1rem; 
+        color: #7f8c8d; 
+        line-height: 1.6; 
+    }
+</style>
+
+<div class="container">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1>Welcome to Abdiweli & Co Lawyer Management System</h1>
+        <p>Efficiently manage your legal appointments and stay organized.</p>
+    </div>
+    
+    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;">
+        <a href="{% url 'login' %}" class="button button-login">
+            Login
+        </a>
+        <a href="{% url 'register' %}" class="button button-register">
+            Register
+        </a>
+    </div>
+
+    <div class="features-container">
+        <h2>System Features</h2>
+        <p>This system is designed to manage appointments between clients and lawyers. You can register as a new user, log in to your account, book appointments, and view your appointments.</p>
+        <p>If you're a lawyer, you can view all your scheduled appointments. Clients can view their appointments and book new ones.</p>
+    </div>
+</div>
+
+{% endblock %}

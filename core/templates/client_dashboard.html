@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+{% load static %}  <!-- Load static files -->
+{% block content %}
+<nav class="navbar">
+    <a href="{% url 'client_appointments' %}" class="btn">My Appointments</a>
+    <a href="{% url 'book_appointment' %}" class="btn">Book Appointment</a>
+    <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+    <a href="{% url 'about' %}" class="btn">About</a>
+    <a href="{% url 'lawyer_list' %}" class="btn">Lawyers</a>
+    <a href="{% url 'logout' %}" class="btn">Logout</a>
+</nav>
+
+<div class="main-content">
+    <h1 class="main-title">Client Dashboard</h1>
+    <p class="welcome-text">Welcome, <strong>{{ user.username }}</strong>!</p>
+    <h2 class="company-title">Abdiweli & Co Advocates</h2>
+
+    <!-- Services Section -->
+    <h2 class="section-title">Services Offered</h2>
+    <div class="services">
+        <!-- Service Cards -->
+        <div class="card">
+            <h3>M&A PRIVATE EQUITY AND CAPITAL MARKETS</h3>
+            <p>Comprehensive legal services for mergers and acquisitions, private equity, and capital market transactions.</p>
+        </div>
+        <div class="card">
+            <h3>BANKING, FINANCE AND FINTECH</h3>
+            <p>Legal expertise in banking regulations, financial transactions, and fintech innovations.</p>
+        </div>
+        <div class="card">
+            <h3>GENERAL CORPORATE</h3>
+            <p>Corporate governance, compliance, and advisory services tailored to meet corporate needs.</p>
+        </div>
+        <div class="card">
+            <h3>TAX ADVISORY & DISPUTE RESOLUTIONS</h3>
+            <p>Strategic tax planning, advisory services, and effective resolution of tax-related disputes.</p>
+        </div>
+        <div class="card">
+            <h3>INTELLECTUAL PROPERTY</h3>
+            <p>Protection of intellectual property rights, including trademarks, patents, and copyrights.</p>
+        </div>
+        <div class="card">
+            <h3>DISPUTE RESOLUTIONS</h3>
+            <p>Resolution of commercial disputes through negotiation, mediation, and litigation.</p>
+        </div>
+        <div class="card">
+            <h3>FAMILY LAW</h3>
+            <p>Expert legal advice and representation in family law matters including divorce, custody, and support.</p>
+        </div>
+        <div class="card">
+            <h3>CRIMINAL DEFENSE</h3>
+            <p>Skilled defense for clients facing criminal charges, ensuring their rights are protected.</p>
+        </div>
+    </div>
+
+    <!-- Lawyers Section -->
+    <h2 class="section-title">Our Lawyers</h2>
+    <div class="lawyers">
+        <!-- Lawyer Cards -->
+        <div class="lawyer-card">
+            <h3>Mr. Muhsin Jamal</h3>
+            <img src="{% static 'images/muhsin.jpeg' %}" alt="Mr. Muhsin Jamal">
+            <p>Corporate Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mrs. Munira Mohamed</h3>
+            <img src="{% static 'images/munira.jpeg' %}" alt="Mrs. Munira Mohamed">
+            <p>Family Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mr. Abdulmalik Kassim</h3>
+            <img src="{% static 'images/abdulmalik.jpeg' %}" alt="Mr. Abdulmalik Kassim">
+            <p>Criminal Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mrs. Angelica Juma</h3>
+            <img src="{% static 'images/angelica.jpeg' %}" alt="Mrs. Angelica Juma">
+            <p>Tax Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mr. Rafael Omar</h3>
+            <img src="{% static 'images/rafel.jpeg' %}" alt="Mr. Rafael Omar">
+            <p>Corporate Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mrs. Fatma Abdi</h3>
+            <img src="{% static 'images/fatma.jpeg' %}" alt="Mrs. Fatma Abdi">
+            <p>Intellectual Property Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mr. John Kamulu</h3>
+            <img src="{% static 'images/john.jpeg' %}" alt="Mr. John Kamulu">
+            <p>Criminal Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mrs. Aisha Odhiambo</h3>
+            <img src="{% static 'images/aisha.jpeg' %}" alt="Mrs. Aisha Odhiambo">
+            <p>Family Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mr. Ezekiel Juma</h3>
+            <img src="{% static 'images/ezekel.jpeg' %}" alt="Mr. Ezekiel Juma">
+            <p>Corporate Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mrs. Mary Odhiambo</h3>
+            <img src="{% static 'images/mary.jpeg' %}" alt="Mrs. Mary Odhiambo">
+            <p>Tax Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mr. Phibian Okulu</h3>
+            <img src="{% static 'images/phibian.jpeg' %}" alt="Mr. Phibian Okulu">
+            <p>Criminal Lawyer</p>
+        </div>
+        <div class="lawyer-card">
+            <h3>Mrs. Susan Wanjiku</h3>
+            <img src="{% static 'images/susan.jpeg' %}" alt="Mrs. Susan Wanjiku">
+            <p>Family Lawyer</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Abdiweli & Co Advocates. All Rights Reserved.</p>
+</footer>
+
+<style>
+    /* Basic styling for the overall layout */
+    body {
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font style */
+        background-image: url("{% static 'images/logo background.jpg' %}"); /* Set the background image */
+        background-size: cover; /* Cover the entire page */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent repeating */
+        min-height: 100vh; /* Ensure minimum height is full viewport */
+        color: #fff; /* Change text color to white for better contrast */
+    }
+
+    .main-content {
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for contrast */
+        padding: 20px; /* Inner padding */
+        border-radius: 10px; /* Rounded corners */
+        margin: 20px; /* Margin for the content */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow to separate from background */
+    }
+
+    .navbar {
+        display: flex; /* Use flex for navbar */
+        justify-content: center; /* Center navbar items */
+        gap: 20px; /* Spacing between items */
+        margin: 20px 0; /* Space above and below navbar */
+        z-index: 10; /* Make sure navbar is on top */
+    }
+
+    .btn {
+        background-color: #ffcc00; /* Button background */
+        color: white; /* Button text color */
+        padding: 10px 15px; /* Button padding */
+        border-radius: 5px; /* Rounded corners for buttons */
+        text-decoration: none; /* Remove underline */
+        transition: all 0.3s; /* Smooth transition for button */
+        border: 2px solid transparent; /* Button border */
+    }
+
+    .btn:hover {
+        background-color: rgba(0, 86, 179, 0.8); /* Darker button background on hover */
+        border: 2px solid white; /* Button border on hover */
+    }
+
+    /* Main title styling */
+    .main-title {
+        font-size: 3rem; /* Size for main title */
+        font-weight: bold; /* Bold font */
+        margin-bottom: 20px; /* Space below title */
+        text-align: center; /* Center the title */
+        color: #fff; /* White color for title */
+    }
+
+    .welcome-text {
+        font-size: 1.25rem; /* Size for welcome text */
+        margin-bottom: 20px; /* Space below welcome text */
+        text-align: center; /* Center the text */
+        color: #fff; /* White color */
+    }
+
+    .company-title {
+        font-size: 2rem; /* Size for company title */
+        font-weight: bold; /* Bold font */
+        margin-bottom: 20px; /* Space below title */
+        text-align: center; /* Center the title */
+        color: #ffcc00; /* Yellow color for company title */
+    }
+
+    /* Section title styling */
+    .section-title {
+        font-size: 2rem; /* Size for section title */
+        font-weight: bold; /* Bold font */
+        margin-bottom: 20px; /* Space below section title */
+        text-align: center; /* Center the title */
+        color: #ffcc00; /* Yellow color */
+    }
+
+    /* Grid styling for services */
+    .services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        gap: 20px; /* Space between items */
+        margin: 0 20px; /* Margin for the grid */
+    }
+
+    /* Basic styling for service cards */
+    .card {
+        border: 1px solid #ccc; /* Light gray border */
+        border-radius: 8px; /* Rounded corners */
+        padding: 20px; /* Inner padding */
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for cards */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        text-align: center; /* Center text inside cards */
+        transition: transform 0.3s; /* Smooth scaling on hover */
+        color: #333; /* Dark color for text in cards */
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Slight lift effect on hover */
+    }
+
+    .card h3 {
+        margin-top: 10px; /* Spacing above the title */
+    }
+
+    /* Lawyers section styling */
+    .lawyers {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for lawyers */
+        gap: 20px; /* Space between items */
+        margin: 0 20px; /* Margin for the grid */
+    }
+
+    /* Basic styling for lawyer cards */
+    .lawyer-card {
+        border: 1px solid #ccc; /* Light gray border */
+        border-radius: 8px; /* Rounded corners */
+        padding: 20px; /* Inner padding */
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for lawyer cards */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        text-align: center; /* Center text inside lawyer cards */
+        transition: transform 0.3s; /* Smooth scaling on hover */
+        color: #333; /* Dark color for text in lawyer cards */
+        height: 300px; /* Fixed height for uniformity */
+    }
+
+    .lawyer-card img {
+        max-width: 100%; /* Ensure image does not exceed card width */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 4px; /* Rounded corners for images */
+        margin-bottom: 10px; /* Space below image */
+    }
+
+    .lawyer-card:hover {
+        transform: translateY(-5px); /* Slight lift effect on hover */
+    }
+
+    /* Footer styling */
+    footer {
+        text-align: center; /* Center footer text */
+        margin-top: 40px; /* Space above footer */
+        color: #fff; /* White color for footer text */
+    }
+</style>
+
+{% endblock %}

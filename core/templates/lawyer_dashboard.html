@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'images/logo background.jpg' %}"); /* Set the background image */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the background image */
+        font-family: Arial, sans-serif; /* Set a default font */
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+        height: 100vh; /* Full viewport height */
+        display: flex; /* Use flexbox for centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        color: #fff; /* Default text color */
+    }
+
+    /* Styles for the dashboard container */
+    .container {
+        max-width: 800px;
+        padding: 40px;
+        background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency for better blending */
+        border-radius: 10px; /* Slightly more rounded corners */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+        text-align: center; /* Center the text inside the container */
+    }
+
+    /* Navbar styles */
+    .navbar {
+        display: flex; /* Use flex for navbar */
+        justify-content: center; /* Center navbar items */
+        gap: 20px; /* Spacing between items */
+        margin-top: 20px; /* Space above navbar */
+        padding: 10px; /* Inner padding for navbar */
+        border-radius: 5px; /* Rounded corners for navbar */
+        
+    }
+
+    /* Button styles */
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        color: black; /* White text for buttons */
+        background-color:  #ffcc00; /* Grey background for buttons */
+        transition: transform 0.3s; /* Added transition for scaling */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for buttons */
+    }
+
+    .btn:hover {
+        transform: translateY(-2px); /* Slight lift effect on hover */
+    }
+
+    /* Title styles */
+    .dashboard-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #ffcc00; /* Gold color for the title */
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Soft text shadow for better readability */
+    }
+
+    /* Welcome message styles */
+    .welcome-message {
+        font-size: 1.5rem;
+        color: #fff; /* White for better visibility */
+        margin: 10px 0; /* Added margin for spacing */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Soft text shadow for better readability */
+    }
+
+    .username {
+        font-weight: bold;
+        color: #00bfff; /* Bright blue for emphasis */
+    }
+</style>
+
+<div class="container">
+    <h1 class="dashboard-title">Lawyer Dashboard</h1>
+
+    <p class="welcome-message">Welcome, <span class="username">{{ user.username }}</span>!</p>
+
+    <div class="navbar">
+        <a href="{% url 'lawyer_appointments' %}" class="btn">View Appointments</a>
+        <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+        <a href="{% url 'about' %}" class="btn">About</a>
+        <a href="{% url 'logout' %}" class="btn">Logout</a>
+    </div>
+</div>
+{% endblock %}

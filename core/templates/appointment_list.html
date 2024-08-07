@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointments{% endblock %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'images/logo background.jpg' %}"); /* Set background image */
+        background-size: cover; /* Cover the entire page */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent repeating */
+        color: #ffffff; /* Set text color to white for better contrast */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        font-family: 'Verdana', sans-serif; /* Clear font for better visibility */
+    }
+
+    /* Navbar styles */
+    .navbar {
+        display: flex; /* Flexbox for navbar items */
+        justify-content: center; /* Center items horizontally */
+        padding: 10px 0; /* Padding for the navbar */
+        position: sticky; /* Sticky positioning */
+        top: 0; /* Align to the top */
+        z-index: 1000; /* Ensure it stays on top */
+    }
+
+    .navbar a {
+        background-color: #ffcc00; /* Yellow button background */
+        color: #000; /* Black text color */
+        text-decoration: none; /* Remove underline */
+        padding: 10px 20px; /* Padding for links */
+        font-size: 1.1rem; /* Font size for links */
+        margin: 0 10px; /* Space between links */
+        border-radius: 5px; /* Rounded corners for buttons */
+        transition: transform 0.3s; /* Smooth transition for scaling */
+    }
+
+    .navbar a:hover {
+        transform: none; /* No transform on hover */
+    }
+
+    .appointments-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for blending */
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #ffcc00; /* Yellow color for headings */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Combine borders */
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    thead {
+        background-color: #007bff; /* Header background */
+        color: white;
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        font-family: 'Verdana', sans-serif; /* Clear font for better visibility */
+        color: #ffffff; /* White text for table cells */
+        background-color: transparent; /* Make cell background transparent */
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.1); /* Light transparent background for even rows */
+    }
+
+    .empty-message {
+        text-align: center; /* Center empty message */
+        font-style: italic;
+        color: #ffcc00; /* Change empty message color for better visibility */
+        padding: 20px 0; /* Add padding for spacing */
+    }
+
+    .completed {
+        color: green; /* Color for completed appointments */
+        font-weight: bold; /* Bold font for emphasis */
+    }
+</style>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="{% url 'admin_dashboard' %}">Admin Dashboard</a>
+    <a href="{% url 'client_list' %}">Client List</a>
+    <a href="{% url 'lawyer_list' %}">Lawyers List</a>
+    <a href="{% url 'add_lawyer' %}">Add Lawyer</a>
+    <a href="{% url 'contact' %}">Contact</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+
+<div class="appointments-container">
+    <h2>Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Lawyer</th>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Contact Number</th>
+                <th>Status</th> <!-- Column for appointment status -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.client.name }}</td>
+                    <td>{{ appointment.lawyer.name }}</td>
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.reason }}</td>
+                    <td>{{ appointment.contact_number }}</td>
+                    <td>
+                        {% if appointment.completed %}
+                            <span class="completed">Completed</span>
+                        {% else %}
+                            <span>Pending</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6" class="empty-message">No appointments found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

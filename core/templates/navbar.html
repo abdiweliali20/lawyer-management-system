@@ -1,0 +1,49 @@
+<!-- <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-xl">
+        <a href="{% url 'home' %}" class="hover:underline">Home</a>
+      </div>
+      <div>
+        {% if user.is_authenticated %}
+          <a href="{% url 'client_appointments' %}" class="text-white px-4 py-2 hover:bg-gray-700">My Appointments</a>
+          <a href="{% url 'book_appointment' %}" class="text-white px-4 py-2 hover:bg-gray-700">Book appointment</a>
+          
+          {% if user.is_staff %}
+            <a href="{% url 'lawyer_list' %}" class="text-white px-4 py-2 hover:bg-gray-700">Lawyers list</a>
+            <a href="{% url 'client_list' %}" class="text-white px-4 py-2 hover:bg-gray-700">clients list</a>
+            
+          {% endif %}
+          <a href="{% url 'logout' %}" class="text-white px-4 py-2 hover:bg-gray-700">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="text-white px-4 py-2 hover:bg-gray-700">Login</a>
+          <a href="{% url 'register' %}" class="text-white px-4 py-2 hover:bg-gray-700">Register</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav> -->
+
+
+  <!-- <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-white text-xl">
+            <a href="{% url 'home' %}" class="hover:underline">Home</a>
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+                <a href="{% url 'client_appointments' %}" class="text-white px-4 py-2 hover:bg-gray-700">My Appointments</a>
+                <a href="{% url 'book_appointment' %}" class="text-white px-4 py-2 hover:bg-gray-700">Book appointment</a>
+                
+                {% if user.is_superuser %}
+                    <a href="{% url 'add_lawyer' %}" class="text-white px-4 py-2 hover:bg-gray-700">Add Lawyer</a>
+                {% endif %}
+                
+                <a href="{% url 'logout' %}" class="text-white px-4 py-2 hover:bg-gray-700">Logout</a>
+
+               
+            {% else %}
+                <a href="{% url 'login' %}" class="text-white px-4 py-2 hover:bg-gray-700">Login</a>
+                <a href="{% url 'register' %}" class="text-white px-4 py-2 hover:bg-gray-700">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</nav> -->
